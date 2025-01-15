@@ -42,7 +42,7 @@ jobs:
 
 
       # Paso 6: Publicar en NuGet
-      - name: Publish to NuGet
+      - name: Publish to GitHub
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: dotnet nuget push ./packages/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+          TOKEN: ${{ secrets.SECRET_GREET }}
+        run: dotnet nuget push ./packages/*.nupkg --api-key $TOKEN --source https://nuget.pkg.github.com/isanqbik/index.json
